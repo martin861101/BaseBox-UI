@@ -1,4 +1,4 @@
-# 🧪 MadScientist — Homelab Control Center
+# 🧪 BaseBox — Homelab Control Center
 
 <p align="center">
   <img src="public/img/dash_purple.png" alt="MadScientist Dashboard" width="100%" />
