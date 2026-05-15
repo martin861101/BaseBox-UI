@@ -1,0 +1,15 @@
+services:
+  homelab-agent:
+    build: .
+    container_name: mad-scientist-agent
+    restart: unless-stopped
+    ports:
+      - "8788:8788"
+    volumes:
+      - ./data:/data
+    environment:
+      DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD:-changeme}
+      JWT_SECRET: ${JWT_SECRET:-please-change-this}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

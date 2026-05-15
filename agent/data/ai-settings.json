@@ -1,0 +1,364 @@
+{
+  "configs": {
+    "openai": {
+      "enabled": false,
+      "apiKey": "",
+      "baseUrl": "https://api.openai.com/v1",
+      "selectedModel": "gpt-5.5-thinking"
+    },
+    "gemini": {
+      "enabled": true,
+      "apiKey": "AIzaSyAwUSnzqSGaqRT_-n1VBHDr6GhCIagUNXo",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "selectedModel": "gemini-3.1-flash-lite"
+    },
+    "claude": {
+      "enabled": false,
+      "apiKey": "",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "selectedModel": "claude-opus-4.7"
+    },
+    "ollama": {
+      "enabled": true,
+      "apiKey": "",
+      "baseUrl": "http://localhost:11434",
+      "selectedModel": "llama3.3"
+    },
+    "openrouter": {
+      "enabled": false,
+      "apiKey": "",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "selectedModel": "openai/gpt-5.5-thinking"
+    },
+    "mistral": {
+      "enabled": false,
+      "apiKey": "",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "selectedModel": "mistral-large-3"
+    },
+    "huggingface": {
+      "enabled": false,
+      "apiKey": "",
+      "baseUrl": "https://api-inference.huggingface.co",
+      "selectedModel": "deepseek-ai/DeepSeek-V4"
+    }
+  },
+  "settings": {
+    "provider": "ollama",
+    "model": "llama3.3",
+    "temperature": 0.7,
+    "topP": 0.9,
+    "topK": 40,
+    "maxTokens": 4096,
+    "repeatPenalty": 1.1,
+    "systemPrompt": "You are a helpful homelab sysadmin assistant. Give concise, command-oriented answers. When suggesting shell commands, put them in fenced ```bash code blocks so the user can run them with one click.",
+    "quantization": "Q4_K_M",
+    "numGpu": -1,
+    "numThreads": 0,
+    "contextLength": 4096,
+    "batchSize": 512,
+    "seed": -1,
+    "mirostat": 0,
+    "mirostatTau": 5,
+    "mirostatEta": 0.1,
+    "keepAlive": "5m"
+  },
+  "tools": [
+    {
+      "id": "file_read",
+      "label": "File Read",
+      "description": "Read contents of files on the connected server",
+      "icon": "📄",
+      "category": "filesystem",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "file_write",
+      "label": "File Write",
+      "description": "Create or overwrite files on the server",
+      "icon": "✏️",
+      "category": "filesystem",
+      "enabled": true,
+      "dangerLevel": "moderate",
+      "requiresConfirmation": true
+    },
+    {
+      "id": "file_delete",
+      "label": "File Delete",
+      "description": "Delete files and directories",
+      "icon": "🗑️",
+      "category": "filesystem",
+      "enabled": false,
+      "dangerLevel": "dangerous",
+      "requiresConfirmation": true
+    },
+    {
+      "id": "file_list",
+      "label": "File List",
+      "description": "List directory contents with metadata",
+      "icon": "📁",
+      "category": "filesystem",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "file_search",
+      "label": "File Search",
+      "description": "Search for files by name or content (grep/find)",
+      "icon": "🔍",
+      "category": "filesystem",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "shell_exec",
+      "label": "Shell Execute",
+      "description": "Execute shell commands on the server",
+      "icon": "⚡",
+      "category": "execution",
+      "enabled": true,
+      "dangerLevel": "dangerous",
+      "requiresConfirmation": true
+    },
+    {
+      "id": "script_run",
+      "label": "Script Run",
+      "description": "Execute multi-line scripts (bash, python, etc.)",
+      "icon": "📜",
+      "category": "execution",
+      "enabled": true,
+      "dangerLevel": "dangerous",
+      "requiresConfirmation": true
+    },
+    {
+      "id": "process_list",
+      "label": "Process List",
+      "description": "List running processes and system info",
+      "icon": "📊",
+      "category": "system",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "docker_manage",
+      "label": "Docker Manage",
+      "description": "List, start, stop, inspect containers",
+      "icon": "🐳",
+      "category": "system",
+      "enabled": true,
+      "dangerLevel": "moderate",
+      "requiresConfirmation": true
+    },
+    {
+      "id": "http_fetch",
+      "label": "HTTP Fetch",
+      "description": "Make HTTP requests from the server (curl)",
+      "icon": "🌐",
+      "category": "network",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "websearch",
+      "label": "Web Search (Tavily)",
+      "description": "Search the web for up-to-date information",
+      "icon": "🌐",
+      "category": "network",
+      "enabled": true,
+      "dangerLevel": "safe",
+      "requiresConfirmation": false
+    },
+    {
+      "id": "playwright",
+      "label": "Browser Automation",
+      "description": "Write and execute Playwright scripts for web scraping",
+      "icon": "🎭",
+      "category": "execution",
+      "enabled": true,
+      "dangerLevel": "moderate",
+      "requiresConfirmation": true
+    }
+  ],
+  "skills": [
+    {
+      "id": "sysadmin",
+      "label": "Sysadmin",
+      "description": "Linux server administration, package management, service configuration",
+      "icon": "🖥️",
+      "enabled": true,
+      "systemPromptAddition": "You are an expert Linux sysadmin. Help with package management, service configuration, user management, and system hardening."
+    },
+    {
+      "id": "docker",
+      "label": "Docker & Containers",
+      "description": "Docker, Podman, Docker Compose, container orchestration",
+      "icon": "🐳",
+      "enabled": true,
+      "systemPromptAddition": "You are a Docker and containerization expert. Help with Dockerfiles, docker-compose, container networking, volumes, and troubleshooting."
+    },
+    {
+      "id": "networking",
+      "label": "Networking",
+      "description": "DNS, firewalls, VPNs, reverse proxies, load balancing",
+      "icon": "🌐",
+      "enabled": true,
+      "systemPromptAddition": "You are a networking expert. Help with DNS, iptables/nftables, VPNs (WireGuard/OpenVPN), Nginx/Traefik/Caddy reverse proxy, and network troubleshooting."
+    },
+    {
+      "id": "scripting",
+      "label": "Scripting & Automation",
+      "description": "Bash, Python, cron, systemd, CI/CD pipelines",
+      "icon": "📜",
+      "enabled": true,
+      "systemPromptAddition": "You are a scripting and automation expert. Help write bash scripts, Python scripts, cron jobs, systemd units, and CI/CD pipeline configurations."
+    },
+    {
+      "id": "security",
+      "label": "Security & Hardening",
+      "description": "SSH hardening, firewall rules, fail2ban, SSL/TLS, security auditing",
+      "icon": "🔒",
+      "enabled": false,
+      "systemPromptAddition": "You are a security expert. Help with SSH hardening, firewall configuration, fail2ban, SSL/TLS certificates, and security auditing."
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitoring & Logging",
+      "description": "Prometheus, Grafana, log aggregation, alerting",
+      "icon": "📈",
+      "enabled": false,
+      "systemPromptAddition": "You are a monitoring expert. Help set up Prometheus, Grafana, log aggregation (Loki, ELK), and alerting systems."
+    },
+    {
+      "id": "database",
+      "label": "Database Management",
+      "description": "PostgreSQL, MySQL, Redis, MongoDB, backups",
+      "icon": "🗄️",
+      "enabled": false,
+      "systemPromptAddition": "You are a database expert. Help with PostgreSQL, MySQL, Redis, MongoDB administration, query optimization, and backup strategies."
+    },
+    {
+      "id": "code_review",
+      "label": "Code Review",
+      "description": "Review code, suggest improvements, find bugs",
+      "icon": "🔎",
+      "enabled": true,
+      "systemPromptAddition": "You are a code review expert. Analyze code for bugs, security issues, performance problems, and suggest improvements."
+    },
+    {
+      "id": "docx",
+      "label": "Word Documents (DOCX)",
+      "description": "Create, read, edit, or manipulate Word documents (.docx files) using docx-js or XML manipulation.",
+      "icon": "📝",
+      "enabled": true,
+      "systemPromptAddition": "You are a Word document expert. Use docx-js for creating new documents and XML manipulation for editing existing ones. Always set page size explicitly to US Letter (12240x15840 DXA) unless asked otherwise. Use Arial as default font. Never use unicode bullets; use numbering config with LevelFormat.BULLET. For tables, always specify dual widths (table width and column widths in DXA)."
+    }
+  ],
+  "memory": {
+    "enabled": true,
+    "maxConversationHistory": 50,
+    "persistAcrossSessions": true,
+    "summarizeOldMessages": false,
+    "summaryThreshold": 30
+  },
+  "embedding": {
+    "provider": "ollama",
+    "model": "nomic-embed-text",
+    "dimensions": 768,
+    "chunkSize": 512,
+    "chunkOverlap": 50,
+    "enabled": true
+  },
+  "agents": [
+    {
+      "id": "agent-1778803547103-o4r22l",
+      "name": "Ultra",
+      "description": "Everything",
+      "icon": "🤖",
+      "providerId": "ollama",
+      "modelId": "gemma4:31b-cloud",
+      "systemPrompt": "You can do litterally everything",
+      "enabledToolIds": [
+        "file_read",
+        "file_list",
+        "shell_exec",
+        "file_write",
+        "script_run",
+        "file_delete",
+        "process_list",
+        "docker_manage",
+        "file_search",
+        "http_fetch",
+        "websearch",
+        "playwright"
+      ],
+      "enabledSkillIds": [
+        "sysadmin",
+        "docker",
+        "networking",
+        "security",
+        "scripting",
+        "monitoring",
+        "database",
+        "code_review"
+      ],
+      "temperature": 0.7,
+      "maxTokens": 4096,
+      "createdAt": 1778803597002,
+      "updatedAt": 1778875871703
+    },
+    {
+      "id": "agent-1778832112423-9rgkl4",
+      "name": "Document Expert",
+      "description": "Reads, Format and Creates Documents",
+      "icon": "🤖",
+      "providerId": "ollama",
+      "modelId": "marvis-light:latest",
+      "systemPrompt": "",
+      "enabledToolIds": [
+        "file_read",
+        "file_list",
+        "shell_exec",
+        "file_write",
+        "file_search",
+        "websearch",
+        "playwright"
+      ],
+      "enabledSkillIds": [
+        "sysadmin",
+        "scripting"
+      ],
+      "temperature": 0.7,
+      "maxTokens": 4096,
+      "createdAt": 1778832360081,
+      "updatedAt": 1778832360081
+    },
+    {
+      "id": "agent-1778877610423-gzhrlc",
+      "name": "test",
+      "description": "",
+      "icon": "🤖",
+      "providerId": "ollama",
+      "modelId": "llama3.3",
+      "systemPrompt": "",
+      "enabledToolIds": [
+        "file_read",
+        "file_list",
+        "shell_exec"
+      ],
+      "enabledSkillIds": [
+        "sysadmin"
+      ],
+      "temperature": 0.7,
+      "maxTokens": 4096,
+      "createdAt": 1778877616390,
+      "updatedAt": 1778877616390
+    }
+  ],
+  "tavily": "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"
+}
