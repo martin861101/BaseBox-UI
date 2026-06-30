@@ -1,7 +1,7 @@
 # 🧪 BaseBox — AI Homelab Control Center
 
 <p align="center">
-  <img src="https://basebox.hygridtech.co.za/login" alt="MadScientist Dashboard" width="100%" />
+  <img src="https://basebox.hygridtech.co.za/img/mad_logo_purple.png" alt="MadScientist Dashboard" width="100%" />
 </p>
 
 A modern, self-hosted homelab management dashboard with an integrated **multi-provider AI assistant**. Monitor servers, manage Docker containers, execute commands over SSH, browse remote filesystems, and chat with AI agents — all from a single, polished web interface.
